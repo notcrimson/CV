@@ -1,0 +1,13 @@
+.box-form-template {
+  border: 1px solid black;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.spacing {
+  margin: 20px 10px;
+}
