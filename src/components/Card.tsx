@@ -16,11 +16,20 @@ type inp = {
   value: React.ReactNode;
 }
 
+type InputValues = {
+  [key: string]: string;
+}
+
+// Вот так тоже писать можно, по сути одно и то же, у нас на проекте так пишут
+// interface InputValues {
+//   [key: string]: string; 
+// }
+
 const Card = ({ feilds }: FeildProps) => {
 
 
   const [edit, setEdit] = useState<Boolean>(true)
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState<InputValues>({});
 
   const editEnabled = () => setEdit(prev => true)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
