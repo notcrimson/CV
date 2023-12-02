@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SubmitButton = ({ onClick }: { onClick: () => void }) => {
+const SubmitButton = ({ edit, onClick }: { edit: boolean, onClick: () => void }) => {
   return (
     <div>
-      <button onClick={onClick}>Submit</button>
+      <button className='button' onClick={onClick} disabled={!edit}>Submit</button>
     </div>
   )
 }

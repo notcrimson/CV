@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-const EditButton = ({ edit, onClick }: { edit: Boolean, onClick: () => void }) => {
+const EditButton = ({ edit, onClick }: { edit: boolean, onClick: () => void }) => {
 
   return (
     <div>
-      <button onClick={onClick}>Edit</button>
+      <button className="button" onClick={onClick} disabled={edit}>Edit</button>
     </div>
   )
 }

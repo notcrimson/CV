@@ -28,12 +28,13 @@ type InputValues = {
 const Card = ({ feilds }: FeildProps) => {
 
 
-  const [edit, setEdit] = useState<Boolean>(true)
+  const [edit, setEdit] = useState<boolean>(true)
   const [inputs, setInputs] = useState<InputValues>({});
 
   const editEnabled = () => setEdit(prev => true)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    console.log(e.target.name);
     setInputs(prev => {
       return { ...prev, [name]: value }
     })
@@ -46,22 +47,22 @@ const Card = ({ feilds }: FeildProps) => {
   return (
     <>
       <div className="box-form-template">
-        {
-          !edit
-            ? Object.entries(inputs).map(([name, value], i) => (
-              <div key={i}>
-                <label>{name}</label>
-                <p>{value}</p>
-              </div>
-            ))
-            :
+        <div className='card'>
+
+          {
             feilds.map(field => (
-              <div key={field.name}>
-                <Feild name={field.name} type={field.type} edit={edit} handleChange={handleChange} />
-              </div>))}
-        <div className='flex-row spacing'>
-          <SubmitButton onClick={submitForm} />
-          <EditButton edit={edit} onClick={editEnabled} />
+              <div key={field.name} className='flex-row feild'>
+                <label>{field.name}</label>
+                {!edit
+                  ? <p>{inputs[field.name] || "Enter " + field.name}</p>
+                  : <Feild name={field.name} type={field.type} value={inputs[field.name] ?? ""} handleChange={handleChange} />
+                }
+              </div>
+            ))}
+          <div className='flex-row spacing button-flex'>
+            <SubmitButton edit={edit} onClick={submitForm} />
+            <EditButton edit={edit} onClick={editEnabled} />
+          </div>
         </div>
       </div>
     </>

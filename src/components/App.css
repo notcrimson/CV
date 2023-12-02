@@ -1,13 +1,48 @@
 .box-form-template {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  margin: 20px 10px;
+  width: 450px;
+  background-color: bisque;
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.button-flex {
+  justify-content: center;
   gap: 10px;
 }
+.button {
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  border: none;
+}
 .spacing {
-  margin: 20px 10px;
+  margin: 15px 10px;
+}
+p {
+  margin: 0px 5px;
+  padding: 0px;
+  font-size: 20px;
+  color: rgb(85, 85, 85);
+}
+
+.card {
+  margin: 20px 0px;
+}
+
+.feild label {
+  display: inline-block;
+  width: 150px;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 5px 2px;
+  text-align: right;
+}
+.feild input {
+  margin: 0px 5px;
 }
